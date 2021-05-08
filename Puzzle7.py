@@ -2,6 +2,8 @@
 # Puzzle on Day 7
 # -----------------------------------------------------------------------------
 
+# Cheers Elliot G for your help once again
+
 # Import
 # -----------------------------------------------------------------------------
 
@@ -55,5 +57,25 @@ while previousLength != len(ShinySet):
 
 print("Answer to part 1 is", (len(ShinySet) - 1))
 
+# Part 2
+# -----------------------------------------------------------------------------
 
+# Testing with their input
+bag_puzzle = open("TestInput7New.txt", "r").read().strip().split("\n")
 
+# Re-parse input with the numbers
+new_bag_dictionary = {}
+for line in bag_puzzle:
+    [key,values] = line.split("contain")
+    values = values.strip().split(", ")
+    values = map(string_tidy, values)
+    values = filter(lambda x: x != "no other bag", values)
+    values = map(lambda x: tuple(x.split(" ", 1)), values)
+    key = string_tidy(key).strip()
+    new_bag_dictionary[key] = list(values)
+
+print(new_bag_dictionary)
+print(2**7)
+print(2*2*2*2*2*2*2)
+# Pseudo
+# Find keys from numbers
